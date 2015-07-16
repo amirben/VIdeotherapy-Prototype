@@ -1,0 +1,41 @@
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\Database\Seated.gbd
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\MainWindow.g.cs
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\App.g.cs
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_Content.g.cs
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.cache
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.lref
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\MainWindow.baml
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.g.resources
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.csproj.GenerateResource.Cache
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Program Files\Microsoft SDKs\Kinect\v2.0-PublicPreview1408\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\Database\Seated.gbd
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\App.g.cs
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_Content.g.cs
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.cache
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.lref
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\MainWindow.baml
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.g.resources
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Dwight\Downloads\Kinect2\1408.5000\_08202014\Samples\Managed\DiscreteGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb

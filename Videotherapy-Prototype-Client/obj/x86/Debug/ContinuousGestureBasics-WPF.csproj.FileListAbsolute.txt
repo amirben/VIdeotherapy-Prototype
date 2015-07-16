@@ -1,0 +1,61 @@
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\bin\x86\Debug\Database\Seated.gbd
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\ContinuousGestureBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\App.g.cs
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_Content.g.cs
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.cache
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.lref
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\MainWindow.baml
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.g.resources
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\ContinuousGestureBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Dwight\Source\Repos\kinectcontinuousgestures\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Dwight\Source\Repos\kinectclappinggesture\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Dwight\Source\Repos\kinectclappinggesture\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Dwight\Source\Repos\kinectclappinggesture\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\bin\x86\Debug\Database\Seated.gbd
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\ContinuousGestureBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\App.g.cs
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_Content.g.cs
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.cache
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.lref
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\MainWindow.baml
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.g.resources
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Ben\Downloads\ContinousGestureBasics-WPF\obj\x86\Debug\ContinuousGestureBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\bin\x86\Debug\Database\Seated.gbd
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\bin\x86\Debug\DiscreteGestureBasics-WPF.pdb
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.dll
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\bin\x86\Debug\Microsoft.Kinect.VisualGestureBuilder.xml
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\ContinuousGestureBasics-WPF.csprojResolveAssemblyReference.cache
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\App.g.cs
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_Content.g.cs
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.cache
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF_MarkupCompile.lref
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\MainWindow.baml
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\DiscreteGestureBasics-WPF.g.resources
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\Microsoft.Samples.Kinect.DiscreteGestureBasics.Properties.Resources.resources
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\obj\x86\Debug\ContinuousGestureBasics-WPF.csproj.GenerateResource.Cache
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Prototype\ContinousGestureTemplete\bin\x86\Debug\DiscreteGestureBasics-WPF.exe.config
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Prototype\ContinousGestureTemplete\obj\x86\Debug\DiscreteGestureBasics-WPF.exe
+C:\Users\Ben\Desktop\Afeka\VideoTherapy\Prototype\ContinousGestureTemplete\obj\x86\Debug\DiscreteGestureBasics-WPF.pdb
