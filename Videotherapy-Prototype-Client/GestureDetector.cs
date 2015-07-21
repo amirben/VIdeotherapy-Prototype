@@ -1,15 +1,12 @@
-﻿//------------------------------------------------------------------------------
-// <copyright file="GestureDetector.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------------------
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.Kinect;
+using Microsoft.Kinect.VisualGestureBuilder;
 
-namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
+
+namespace VideotherapyPrototype
 {
-    using System;
-    using System.Collections.Generic;
-    using Microsoft.Kinect;
-    using Microsoft.Kinect.VisualGestureBuilder;
+    
 
     /// <summary>
     /// Gesture Detector class which listens for VisualGestureBuilderFrame events from the service

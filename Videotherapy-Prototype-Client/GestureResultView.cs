@@ -1,10 +1,5 @@
-﻿//------------------------------------------------------------------------------
-// <copyright file="GestureResultView.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------------------
-
-namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
+﻿
+namespace VideotherapyPrototype
 {
     using System;
     using System.ComponentModel;

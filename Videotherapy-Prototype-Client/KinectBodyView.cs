@@ -1,10 +1,4 @@
-﻿//------------------------------------------------------------------------------
-// <copyright file="KinectBodyView.cs" company="Microsoft">
-//     Copyright (c) Microsoft Corporation.  All rights reserved.
-// </copyright>
-//------------------------------------------------------------------------------
-
-namespace Microsoft.Samples.Kinect.DiscreteGestureBasics
+﻿namespace VideotherapyPrototype
 {
     using System;
     using System.Collections.Generic;
