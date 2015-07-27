@@ -19,7 +19,6 @@ namespace VideotherapyPrototype
 
         private const string VGB_DATABASE_FILE = @"Database\ClappingHands.gbd";
 
-
         /// <summary> Name of the discrete gesture in the database that we want to track </summary>
         private readonly string seatedGestureName = "ClappingHands";
 
@@ -98,25 +97,6 @@ namespace VideotherapyPrototype
             }
         }
 
-        /// <summary>
-        /// Gets or sets a value indicating whether or not the detector is currently paused
-        /// If the body tracking ID associated with the detector is not valid, then the detector should be paused
-        /// </summary>
-        public bool IsPaused
-        {
-            get
-            {
-                return this.vgbFrameReader.IsPaused;
-            }
-
-            set
-            {
-                if (this.vgbFrameReader.IsPaused != value)
-                {
-                    this.vgbFrameReader.IsPaused = value;
-                }
-            }
-        }
 
         /// <summary>
         /// Disposes all unmanaged resources for the class
@@ -158,50 +138,136 @@ namespace VideotherapyPrototype
         /// <param name="e">event arguments</param>
         private void Reader_GestureFrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
         {
-            VisualGestureBuilderFrameReference frameReference = e.FrameReference;
-            using (VisualGestureBuilderFrame frame = frameReference.AcquireFrame())
+            //VisualGestureBuilderFrameReference frameReference = e.FrameReference;
+            //using (VisualGestureBuilderFrame frame = frameReference.AcquireFrame())
+            //{
+            //    if (frame != null)
+            //    {
+            //        // get the discrete gesture results which arrived with the latest frame
+            //        IReadOnlyDictionary<Gesture, DiscreteGestureResult> discreteResults = frame.DiscreteGestureResults;
+
+            //        // get the progress gesture results which arrived with the latest frame
+            //        IReadOnlyDictionary<Gesture, ContinuousGestureResult> continuousResults = frame.ContinuousGestureResults;
+
+            //        if (continuousResults != null && discreteResults != null)
+            //        {
+                        
+
+
+            //            // we only have one gesture in this source object, but you can get multiple gestures
+            //            foreach (Gesture gesture in this.vgbFrameSource.Gestures)
+            //            {
+            //                if (gesture.Name.Equals(this.seatedGestureName) && gesture.GestureType == GestureType.Continuous)
+            //                {
+                                
+                               
+            //                    ContinuousGestureResult result = null;
+            //                    continuousResults.TryGetValue(gesture, out result);
+                                
+            //                    if (result != null)
+            //                    {
+            //                        // update the GestureResultView object with new gesture result values
+            //                      //  this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence);
+            //                        var progress = result.Progress;
+                                    
+            //                        if (progress > 1.48 && progress < 3 )
+            //                        {
+            //                            //we're clapping but not finished
+            //                            this.GestureResultView.UpdateGestureResult(true, true, 1.0f);
+            //                        }
+            //                        else
+            //                        {
+            //                            this.GestureResultView.UpdateGestureResult(true, false, 1.0f);
+            //                        }
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //}
+        }
+
+
+        public void GestureDataAnalyze()
+        {
+            float progress = 0;
+
+            using (var frame = this.vgbFrameReader.CalculateAndAcquireLatestFrame())
             {
                 if (frame != null)
                 {
-                    // get the discrete gesture results which arrived with the latest frame
-//IReadOnlyDictionary<Gesture, DiscreteGestureResult> discreteResults = frame.DiscreteGestureResults;
+                    // get all discrete and continuous gesture results that arrived with the latest frame
+                    var discreteResults = frame.DiscreteGestureResults;
+                    var continuousResults = frame.ContinuousGestureResults;
 
-                    IReadOnlyDictionary<Gesture, ContinuousGestureResult> continuousResults =
-                        frame.ContinuousGestureResults;
-
-                    if (continuousResults != null)
+                    if (discreteResults != null)
                     {
-                        // we only have one gesture in this source object, but you can get multiple gestures
-                        foreach (Gesture gesture in this.vgbFrameSource.Gestures)
+                        foreach (var gesture in this.vgbFrameSource.Gestures)
                         {
-                            if (gesture.Name.Equals(this.seatedGestureName) && gesture.GestureType == GestureType.Continuous)
+                            if (gesture.GestureType == GestureType.Discrete)
                             {
-                               
-                                ContinuousGestureResult result = null;
-                                continuousResults.TryGetValue(gesture, out result);
+                                DiscreteGestureResult result = null;
+                                discreteResults.TryGetValue(gesture, out result);
+
                                 
                                 if (result != null)
                                 {
-                                    // update the GestureResultView object with new gesture result values
-                                  //  this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence);
-                                    var progress = result.Progress;
-                                    
-                                    if (progress > 1.48 && progress < 3 )
-                                    {
-                                        //we're clapping but not finished
-                                        this.GestureResultView.UpdateGestureResult(true, true, 1.0f);
-                                    }
-                                    else
-                                    {
-                                        this.GestureResultView.UpdateGestureResult(true, false, 1.0f);
-                                    }
+                                    // check if start && and check and upate round
+                                    UpdateRoundData(result, gesture);
+
                                 }
                             }
-                        }
-                    }
-                }
+
+                            if (continuousResults != null)
+                            {
+                                if (gesture.GestureType == GestureType.Continuous /* && check the name of the gesture */)
+                                {
+                                    ContinuousGestureResult result = null;
+                                    continuousResults.TryGetValue(gesture, out result);
+
+                                    if (result != null)
+                                    {
+                                        // update progress bar
+                                        progress = result.Progress;
+                                    }
+
+                                } //if
+                            } // if
+                        } // foreach
+                    } // if
+                } // if
+            } //using
+
+
+            // clamp the progress value between 0 and 1
+            if (progress < 0)
+            {
+                progress = 0;
             }
+            else if (progress > 1)
+            {
+                progress = 1;
+            }
+
+            // update the progress result
+            this.GestureResultView.UpdateContinuousGestureResult(true, progress);
         }
+
+        public void UpdateRoundData(DiscreteGestureResult result, Gesture gesture)
+        {
+            // check if it start gesture
+            // if start gesture - update UI countdown
+            // if (CurrentExercise.StartGesture.Name.Equals(gesture.name)) {}
+
+            // else  - if start gesture already been set
+            // CurrentExercise.Round.CompeleteGesture(gesture.Name, result);
+
+            // check if round complete
+            // if so, update UI
+
+            // if (CurrentExercise.Round.RoundSuccess) { CurrentExercise.NextRound()}
+        }
+
 
         /// <summary>
         /// Handles the TrackingIdLost event for the VisualGestureBuilderSource object
@@ -211,7 +277,7 @@ namespace VideotherapyPrototype
         private void Source_TrackingIdLost(object sender, TrackingIdLostEventArgs e)
         {
             // update the GestureResultView object to show the 'Not Tracked' image in the UI
-            this.GestureResultView.UpdateGestureResult(false, false, 0.0f);
+            this.GestureResultView.UpdateContinuousGestureResult(false, 0.0f);
         }
     }
 }

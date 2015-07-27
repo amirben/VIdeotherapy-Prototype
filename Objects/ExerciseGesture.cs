@@ -6,12 +6,18 @@ using System.Threading.Tasks;
 
 namespace VideoTherapyObjects
 {
-    public class Gesture
+    
+    
+    public class ExerciseGesture
     {
+        public enum ExerciseGestureType { Discrete, Progress };
+
         public String Name { set; get; }
         public double ScoreValue { set; get; }
         public Boolean SuccesStatus { set; get; }
         public double minValue { set; get; }
         public double maxValue { set; get; }
+        public ExerciseGestureType Type { set; get; }
+
     }
 }

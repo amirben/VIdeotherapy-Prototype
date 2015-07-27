@@ -100,7 +100,7 @@
         /// Initializes a new instance of the KinectBodyView class
         /// </summary>
         /// <param name="kinectSensor">Active instance of the KinectSensor</param>
-        public KinectBodyView(KinectSensor kinectSensor)
+        public KinectBodyView(KinectSensor kinectSensor, int width, int height)
         {
             if (kinectSensor == null)
             {
@@ -114,8 +114,10 @@
             FrameDescription frameDescription = kinectSensor.DepthFrameSource.FrameDescription;
 
             // get size of joint space
-            this.displayWidth = frameDescription.Width;
-            this.displayHeight = frameDescription.Height;
+            this.displayWidth = frameDescription.Width -20;
+            this.displayHeight = frameDescription.Height -20;
+            //this.displayWidth = width;
+            //this.displayHeight = height;
 
             // a bone defined as a line between two joints
             this.bones = new List<Tuple<JointType, JointType>>();
@@ -194,7 +196,7 @@
                 using (DrawingContext dc = this.drawingGroup.Open())
                 {
                     // Draw a transparent background to set the render size
-                    dc.DrawRectangle(Brushes.Black, null, new Rect(0.0, 0.0, this.displayWidth, this.displayHeight));
+                    dc.DrawRectangle(Brushes.Transparent, null, new Rect(0.0, 0.0, this.displayWidth, this.displayHeight));
 
                     int penIndex = 0;
                     foreach (Body body in bodies)
