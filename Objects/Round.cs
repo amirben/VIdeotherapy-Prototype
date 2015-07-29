@@ -11,7 +11,15 @@ namespace VideoTherapyObjects
     {
         
         public Dictionary<String, ExerciseGesture> GestureList { set; get; }
+        
+        public ExerciseGesture ContinuousGesture { set; get; }
         public double RoundProgress { set; get; }
+
+        public Round()
+        {
+            GestureList = new Dictionary<string,ExerciseGesture>();
+        }
+
 
         public bool RoundSuccess
         {
@@ -41,7 +49,7 @@ namespace VideoTherapyObjects
             }
         }
 
-        
+       
         
     }
 }

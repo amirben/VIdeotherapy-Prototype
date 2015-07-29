@@ -88,7 +88,23 @@ namespace VideotherapyPrototype
             }
             else
             {
-                this.currentExercise.CurrentRound.UpdateCompeleteGesture(gestureName, result);
+                if (!this.currentExercise.IsStarted && gestureName.Equals(this.currentExercise.StartGesture.Name))
+                {
+                    this.currentExercise.StartGesture.SuccesStatus = result.Detected;
+                    this.currentExercise.StartGesture.ScoreValue = result.Confidence;
+                    //Start UI - countdown
+                }
+
+                else
+                {
+                    this.currentExercise.CurrentRound.UpdateCompeleteGesture(gestureName, result);
+
+                    if (this.currentExercise.CurrentRound.RoundSuccess)
+                    {
+                        this.currentExercise.NextRound();
+                    }
+                }
+                
             }
         }
 
@@ -159,6 +175,13 @@ namespace VideotherapyPrototype
             }
         }
 
+        public Exercise CurrentExersice
+        {
+            get
+            {
+                return currentExercise;
+            }
+        }
         /// <summary>
         /// Notifies UI that a property has changed
         /// </summary>

@@ -91,7 +91,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Gallery\ImageEntity.cs" />
-    <Compile Include="Gallery\ImageView.cs" />
+    <Compile Include="Gallery\ObjectReader.cs" />
     <Compile Include="Switcher\ISwitchable.cs" />
     <Compile Include="Switcher\Switcher.cs" />
     <Compile Include="UC-Exercise.xaml.cs">
@@ -200,9 +200,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Exercises.xml">
+    <Content Include="Exercises.xml">
       <SubType>Designer</SubType>
-    </Resource>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Videos\balance_improvement.mp4">

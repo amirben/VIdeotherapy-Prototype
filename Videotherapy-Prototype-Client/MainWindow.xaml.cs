@@ -11,7 +11,7 @@ using VideotherapyPrototype.Switcher;
 namespace VideotherapyPrototype
 {
     
-
+    
     /// <summary>
     /// Interaction logic for the MainWindow
     /// </summary>

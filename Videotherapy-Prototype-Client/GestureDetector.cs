@@ -6,22 +6,12 @@ using Microsoft.Kinect.VisualGestureBuilder;
 
 namespace VideotherapyPrototype
 {
-    
-
     /// <summary>
     /// Gesture Detector class which listens for VisualGestureBuilderFrame events from the service
     /// and updates the associated GestureResultView object with the latest results for the 'Seated' gesture
     /// </summary>
     public class GestureDetector : IDisposable
     {
-        /// <summary> Path to the gesture database that was trained with VGB </summary>
-        private readonly string gestureDatabase = @"C:\Users\Ben\Desktop\Afeka\VideoTherapy\Kinect Tests\ContinousGestureBasics-WPF\Database\ClappingHands.gbd";
-
-        private const string VGB_DATABASE_FILE = @"Database\ClappingHands.gbd";
-
-        /// <summary> Name of the discrete gesture in the database that we want to track </summary>
-        private readonly string seatedGestureName = "ClappingHands";
-
         /// <summary> Gesture frame source which should be tied to a body tracking ID </summary>
         private VisualGestureBuilderFrameSource vgbFrameSource = null;
 
@@ -59,18 +49,10 @@ namespace VideotherapyPrototype
                 this.vgbFrameReader.FrameArrived += this.Reader_GestureFrameArrived;
             }
 
-            // load the 'Seated' gesture from the gesture database
-            using (VisualGestureBuilderDatabase database = new VisualGestureBuilderDatabase(gestureDatabase))
+            // load the gestures from the gesture database
+            using (VisualGestureBuilderDatabase database = new VisualGestureBuilderDatabase(GestureResultView.CurrentExersice.DBPath))
             {
-                // we could load all available gestures in the database with a call to vgbFrameSource.AddGestures(database.AvailableGestures), 
-                // but for this program, we only want to track one discrete gesture from the database, so we'll load it by name
-                foreach (Gesture gesture in database.AvailableGestures)
-                {
-                    if (gesture.Name.Equals(this.seatedGestureName))
-                    {
-                        this.vgbFrameSource.AddGesture(gesture);
-                    }
-                }
+                this.vgbFrameSource.AddGestures(database.AvailableGestures);
             }
         }
 
@@ -97,6 +79,25 @@ namespace VideotherapyPrototype
             }
         }
 
+        /// <summary>
+        /// Gets or sets a value indicating whether or not the detector is currently paused
+        /// If the body tracking ID associated with the detector is not valid, then the detector should be paused
+        /// </summary>
+        public bool IsPaused
+        {
+            get
+            {
+                return this.vgbFrameReader.IsPaused;
+            }
+
+            set
+            {
+                if (this.vgbFrameReader.IsPaused != value)
+                {
+                    this.vgbFrameReader.IsPaused = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Disposes all unmanaged resources for the class
@@ -213,7 +214,7 @@ namespace VideotherapyPrototype
                                 if (result != null)
                                 {
                                     // check if start && and check and upate round
-                                    UpdateRoundData(result, gesture);
+                                    this.GestureResultView.UpdateDescreteGestureResult(true, gesture.Name, result);
 
                                 }
                             }
@@ -252,22 +253,6 @@ namespace VideotherapyPrototype
             // update the progress result
             this.GestureResultView.UpdateContinuousGestureResult(true, progress);
         }
-
-        public void UpdateRoundData(DiscreteGestureResult result, Gesture gesture)
-        {
-            // check if it start gesture
-            // if start gesture - update UI countdown
-            // if (CurrentExercise.StartGesture.Name.Equals(gesture.name)) {}
-
-            // else  - if start gesture already been set
-            // CurrentExercise.Round.CompeleteGesture(gesture.Name, result);
-
-            // check if round complete
-            // if so, update UI
-
-            // if (CurrentExercise.Round.RoundSuccess) { CurrentExercise.NextRound()}
-        }
-
 
         /// <summary>
         /// Handles the TrackingIdLost event for the VisualGestureBuilderSource object
