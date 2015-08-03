@@ -18,6 +18,8 @@ namespace VideotherapyPrototype
         /// <summary> Gesture frame reader which will handle gesture events coming from the sensor </summary>
         private VisualGestureBuilderFrameReader vgbFrameReader = null;
 
+        private Gesture ContinuousGestureData = null;
+
         /// <summary>
         /// Initializes a new instance of the GestureDetector class along with the gesture frame source and reader
         /// </summary>
@@ -46,13 +48,22 @@ namespace VideotherapyPrototype
             if (this.vgbFrameReader != null)
             {
                 this.vgbFrameReader.IsPaused = true;
-                this.vgbFrameReader.FrameArrived += this.Reader_GestureFrameArrived;
+                //this.vgbFrameReader.FrameArrived += this.Reader_GestureFrameArrived;
             }
 
             // load the gestures from the gesture database
             using (VisualGestureBuilderDatabase database = new VisualGestureBuilderDatabase(GestureResultView.CurrentExersice.DBPath))
             {
                 this.vgbFrameSource.AddGestures(database.AvailableGestures);
+                
+                string continuousGestureName = this.GestureResultView.CurrentExersice.CurrentRound.ContinuousGesture.Name;
+                foreach (var gesture in database.AvailableGestures)
+                {
+                    if (gesture.Name.Equals(continuousGestureName))
+                    {
+                        this.ContinuousGestureData = gesture;
+                    }
+                }
             }
         }
 
@@ -118,7 +129,7 @@ namespace VideotherapyPrototype
             {
                 if (this.vgbFrameReader != null)
                 {
-                    this.vgbFrameReader.FrameArrived -= this.Reader_GestureFrameArrived;
+                    //this.vgbFrameReader.FrameArrived -= this.Reader_GestureFrameArrived;
                     this.vgbFrameReader.Dispose();
                     this.vgbFrameReader = null;
                 }
@@ -132,63 +143,7 @@ namespace VideotherapyPrototype
             }
         }
 
-        /// <summary>
-        /// Handles gesture detection results arriving from the sensor for the associated body tracking Id
-        /// </summary>
-        /// <param name="sender">object sending the event</param>
-        /// <param name="e">event arguments</param>
-        private void Reader_GestureFrameArrived(object sender, VisualGestureBuilderFrameArrivedEventArgs e)
-        {
-            //VisualGestureBuilderFrameReference frameReference = e.FrameReference;
-            //using (VisualGestureBuilderFrame frame = frameReference.AcquireFrame())
-            //{
-            //    if (frame != null)
-            //    {
-            //        // get the discrete gesture results which arrived with the latest frame
-            //        IReadOnlyDictionary<Gesture, DiscreteGestureResult> discreteResults = frame.DiscreteGestureResults;
-
-            //        // get the progress gesture results which arrived with the latest frame
-            //        IReadOnlyDictionary<Gesture, ContinuousGestureResult> continuousResults = frame.ContinuousGestureResults;
-
-            //        if (continuousResults != null && discreteResults != null)
-            //        {
-                        
-
-
-            //            // we only have one gesture in this source object, but you can get multiple gestures
-            //            foreach (Gesture gesture in this.vgbFrameSource.Gestures)
-            //            {
-            //                if (gesture.Name.Equals(this.seatedGestureName) && gesture.GestureType == GestureType.Continuous)
-            //                {
-                                
-                               
-            //                    ContinuousGestureResult result = null;
-            //                    continuousResults.TryGetValue(gesture, out result);
-                                
-            //                    if (result != null)
-            //                    {
-            //                        // update the GestureResultView object with new gesture result values
-            //                      //  this.GestureResultView.UpdateGestureResult(true, result.Detected, result.Confidence);
-            //                        var progress = result.Progress;
-                                    
-            //                        if (progress > 1.48 && progress < 3 )
-            //                        {
-            //                            //we're clapping but not finished
-            //                            this.GestureResultView.UpdateGestureResult(true, true, 1.0f);
-            //                        }
-            //                        else
-            //                        {
-            //                            this.GestureResultView.UpdateGestureResult(true, false, 1.0f);
-            //                        }
-            //                    }
-            //                }
-            //            }
-            //        }
-            //    }
-            //}
-        }
-
-
+       
         public void GestureDataAnalyze()
         {
             float progress = 0;
@@ -200,58 +155,61 @@ namespace VideotherapyPrototype
                     // get all discrete and continuous gesture results that arrived with the latest frame
                     var discreteResults = frame.DiscreteGestureResults;
                     var continuousResults = frame.ContinuousGestureResults;
-
+                    
+                    
                     if (discreteResults != null)
                     {
                         foreach (var gesture in this.vgbFrameSource.Gestures)
                         {
+                            DiscreteGestureResult discreteResult = null;
+                            ContinuousGestureResult continuousResult = null;
+
                             if (gesture.GestureType == GestureType.Discrete)
                             {
-                                DiscreteGestureResult result = null;
-                                discreteResults.TryGetValue(gesture, out result);
-
                                 
-                                if (result != null)
+                                discreteResults.TryGetValue(gesture, out discreteResult);
+
+                                if (discreteResult != null)
                                 {
                                     // check if start && and check and upate round
-                                    this.GestureResultView.UpdateDescreteGestureResult(true, gesture.Name, result);
+                                    //this.GestureResultView.UpdateDescreteGestureResult(true, gesture.Name, result);
 
+                                    continuousResults.TryGetValue(this.ContinuousGestureData, out continuousResult);
+
+                                    if (continuousResult != null)
+                                    {
+                                        // update progress bar
+                                        progress = continuousResult.Progress;
+
+                                        // clamp the progress value between 0 and 1
+                                        if (progress < 0)
+                                        {
+                                            progress = 0;
+                                        }
+                                        else if (progress > 1)
+                                        {
+                                            progress = 1;
+                                        }
+                                    }
                                 }
                             }
 
-                            if (continuousResults != null)
+                            if (continuousResult != null && discreteResult != null)
                             {
-                                if (gesture.GestureType == GestureType.Continuous /* && check the name of the gesture */)
-                                {
-                                    ContinuousGestureResult result = null;
-                                    continuousResults.TryGetValue(gesture, out result);
+                                this.GestureResultView.UpdateGestureResult(true, gesture.Name, discreteResult, progress);
+                            }
 
-                                    if (result != null)
-                                    {
-                                        // update progress bar
-                                        progress = result.Progress;
-                                    }
-
-                                } //if
-                            } // if
+                                                        
                         } // foreach
                     } // if
                 } // if
             } //using
 
-
-            // clamp the progress value between 0 and 1
-            if (progress < 0)
+            //if exercise complete
+            if (this.GestureResultView.CurrentExersice.IsPause)
             {
-                progress = 0;
+                IsPaused = true;
             }
-            else if (progress > 1)
-            {
-                progress = 1;
-            }
-
-            // update the progress result
-            this.GestureResultView.UpdateContinuousGestureResult(true, progress);
         }
 
         /// <summary>

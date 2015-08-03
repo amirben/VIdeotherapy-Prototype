@@ -1,15 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Runtime.CompilerServices;
+using System.Collections.ObjectModel;
 
 namespace VideoTherapyObjects
 {
-    public class Exercise
+    public class Exercise : INotifyPropertyChanged
     {
-        private int currentRound = 0;
+        public event PropertyChangedEventHandler PropertyChanged; 
+
+        public int currentRound = 0;
 
         public String ExerciseName { get; set; }
         public String DBPath { get; set; }
@@ -19,7 +23,7 @@ namespace VideoTherapyObjects
         public int Repetitions { set; get; }
         public int ExerciseNumber { set; get; }
         public ExerciseGesture StartGesture { set; get; }
-        public List<Round> Rounds { get; set; }
+        public ObservableCollection<Round> Rounds { get; set; }
         public double ExerciseScore { set; get; }
         
         private bool isPause = false;
@@ -37,13 +41,31 @@ namespace VideoTherapyObjects
 
         public void NextRound()
         {
-            if (currentRound < Repetitions)
+            
+            if (!isPause)
             {
                 // debug:
                 printAllRoundStatus();
 
-                CurrentRound = Rounds[++currentRound];
+                currentRound++;
+
+                if (currentRound < Repetitions)
+                {
+                    CurrentRound.RoundSuccess = true;
+                    CurrentRound = Rounds[currentRound];
+                }
+                else
+                {
+                    // todo finish exercise
+                    Console.WriteLine("Exercise complete");
+                    isPause = true;
+                }
+
+                this.NotifyPropertyChanged("RoundsLeft");
+                this.NotifyPropertyChanged("RoundSuccess");
             }
+            
+            
         }
 
         public bool IsPause
@@ -76,7 +98,7 @@ namespace VideoTherapyObjects
 
             foreach (ExerciseGesture gesture in CurrentRound.GestureList.Values)
             {
-                Console.WriteLine(gesture.Name + " " + gesture.SuccesStatus + " \n");
+                Console.WriteLine(gesture.Name + " " + gesture.SuccesStatus + " Confidence: " + gesture.ConfidenceValue + " Progress: " + gesture.ProgressValue);
             }
         }
 
@@ -86,18 +108,32 @@ namespace VideoTherapyObjects
 
         public void CreateRounds()
         {
-            Rounds = new List<Round>();
+            Rounds = new ObservableCollection<Round>();
             for (int i = 0; i < Repetitions; i++)
             {
                 Rounds.Add(new Round());
 
                 foreach (ExerciseGesture gesture in ListG)
                 {
-                    Rounds[i].GestureList.Add(gesture.Name, gesture);
+                    Rounds[i].GestureList.Add(gesture.Name, new ExerciseGesture(gesture));
                 }
 
                 Rounds[i].ContinuousGesture = new ExerciseGesture(ContinuousGestureTemp);
                 
+            }
+
+            CurrentRound = Rounds[0];
+        }
+
+        /// <summary>
+        /// Notifies UI that a property has changed
+        /// </summary>
+        /// <param name="propertyName">Name of property that has changed</param> 
+        private void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            if (this.PropertyChanged != null)
+            {
+                this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
     }

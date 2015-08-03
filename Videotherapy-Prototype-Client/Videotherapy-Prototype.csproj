@@ -150,6 +150,9 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <Content Include="Database\squat.gbd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -167,15 +170,7 @@
   <ItemGroup>
     <Resource Include="Images\videotherapy-logo.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Database\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Gallery\ImageData.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <SubType>Designer</SubType>
-    </Resource>
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\balance_improvement.PNG">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

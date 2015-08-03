@@ -20,36 +20,69 @@ namespace VideoTherapyObjects
             GestureList = new Dictionary<string,ExerciseGesture>();
         }
 
-
+        private bool _roundSuccess = false;
         public bool RoundSuccess
         {
 
             get
             {
-                foreach (ExerciseGesture gesture in GestureList.Values)
-                {
-                    if (!gesture.SuccesStatus)
-                    {
-                        return false;
-                    }
+                //// check if round finshed
+                //foreach (ExerciseGesture gesture in GestureList.Values)
+                //{
+                //    if (!gesture.SuccesStatus)
+                //    {
+                //        _roundSuccess = false;
+                //        return _roundSuccess;
+                //    }
 
+                //}
+
+                //_roundSuccess = true;
+                return _roundSuccess;
+            }
+
+            set
+            {
+                _roundSuccess = value;
+            }
+
+        }
+
+        public bool CheckRoundSuccess()
+        {
+            // check if round finshed
+            foreach (ExerciseGesture gesture in GestureList.Values)
+            {
+                if (!gesture.SuccesStatus)
+                {
+                    return false;
                 }
 
-                return true;
             }
 
+            return true;
         }
-
-        public void UpdateCompeleteGesture(string gestureName, DiscreteGestureResult result)
+        public void UpdateCompeleteGesture(string gestureName, DiscreteGestureResult result, float progress)
         {
+            
             if (GestureList.ContainsKey(gestureName))
             {
-                GestureList[gestureName].SuccesStatus = result.Detected;
-                GestureList[gestureName].ScoreValue = result.Confidence;
+                ExerciseGesture gesture = null;
+                GestureList.TryGetValue(gestureName, out gesture);
+       
+                gesture.ConfidenceValue = result.Confidence;
+
+                if (result.Detected)
+                {
+                    gesture.ProgressValue = progress;
+                }
+
+                if (result.Detected && gesture.ConfidenceValue > 0.3f)
+                {
+                    //Console.WriteLine("{0}: Conf: {1}, Detected: {2}, Progress: {3}", gestureName, gesture.ConfidenceValue.ToString(), result.Detected.ToString(), gesture.ProgressValue.ToString());
+                    gesture.SuccesStatus = true;
+                }
             }
         }
-
-       
-        
     }
 }

@@ -77,7 +77,12 @@ namespace VideotherapyPrototype
             }
         }
 
-        public void UpdateDescreteGestureResult(bool isBodyTrackingIdValid, string gestureName, DiscreteGestureResult result)
+        public void UpdateStartGestureResult(bool isBodyTrackIdValid, string gestureName, DiscreteGestureResult result)
+        {
+
+        }
+
+        public void UpdateGestureResult(bool isBodyTrackingIdValid, string gestureName, DiscreteGestureResult result, float progress)
         {
             this.isTracked = isBodyTrackingIdValid;
 
@@ -88,23 +93,42 @@ namespace VideotherapyPrototype
             }
             else
             {
-                if (!this.currentExercise.IsStarted && gestureName.Equals(this.currentExercise.StartGesture.Name))
+                //if it start condition
+                if (!this.currentExercise.IsStarted)
                 {
-                    this.currentExercise.StartGesture.SuccesStatus = result.Detected;
-                    this.currentExercise.StartGesture.ScoreValue = result.Confidence;
-                    //Start UI - countdown
+                    if (gestureName.Equals(this.currentExercise.StartGesture.Name))
+                    {
+                        if (result.Detected /*&& result.Confidence > 0.3f*/)
+                        {
+                            this.currentExercise.StartGesture.SuccesStatus = result.Detected;
+                            this.currentExercise.StartGesture.ConfidenceValue = result.Confidence;
+                            this.currentExercise.IsStarted = true;
+
+                            Console.WriteLine("Test: > Start gesture recognized");
+                            //todo Start UI - countdown
+                        }
+
+                        else
+                        {
+                            //Console.WriteLine("Please be in start position");
+                        }
+                    }
                 }
 
                 else
                 {
-                    this.currentExercise.CurrentRound.UpdateCompeleteGesture(gestureName, result);
+                    // check other gesture
+                    this.currentExercise.CurrentRound.UpdateCompeleteGesture(gestureName, result, progress);
 
-                    if (this.currentExercise.CurrentRound.RoundSuccess)
+
+                    // check if round finshed
+                    if (progress <= 0.01f && this.currentExercise.CurrentRound.CheckRoundSuccess())
                     {
+                        
+                        //Console.WriteLine("Round #{0} Finished! Status: {1}", this.currentExercise.currentRound, this.currentExercise.CurrentRound.RoundSuccess);
                         this.currentExercise.NextRound();
                     }
                 }
-                
             }
         }
 
