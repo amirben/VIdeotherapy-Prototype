@@ -6,18 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.Kinect;
 using Microsoft.Kinect.VisualGestureBuilder;
 namespace VideoTherapyObjects
-{
+{   
+
     public class Round
     {
-        
+
         public Dictionary<String, ExerciseGesture> GestureList { set; get; }
         
         public ExerciseGesture ContinuousGesture { set; get; }
         public double RoundProgress { set; get; }
-
-        public Round()
+        public int RoundNum { set; get; }
+        public Round(int index)
         {
             GestureList = new Dictionary<string,ExerciseGesture>();
+            RoundNum = index;
         }
 
         private bool _roundSuccess = false;

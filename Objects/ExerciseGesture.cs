@@ -89,5 +89,11 @@ namespace VideoTherapyObjects
         {
             _progressValue = (maxValue < minValue) ? Math.Max(minValue, maxValue) : Math.Min(minValue, maxValue);
         }
+
+        public string getGestureData()
+        {
+            string t = String.Format("Name: {0}, Progress: {1}, Confidence: {2}", Name, ProgressValue, ConfidenceValue);
+            return t;
+        }
     }
 }

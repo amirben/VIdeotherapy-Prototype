@@ -97,6 +97,9 @@
     <Compile Include="UC-Exercise.xaml.cs">
       <DependentUpon>UC-Exercise.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UC-ExerciseResult.xaml.cs">
+      <DependentUpon>UC-ExerciseResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UC-ExerciseWindow.xaml.cs">
       <DependentUpon>UC-ExerciseWindow.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="UC-Exercise.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UC-ExerciseResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,6 +158,9 @@
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="Database\squat.gbd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Database\lower_limbs.gbd">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Properties\Settings.settings">

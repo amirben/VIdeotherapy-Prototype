@@ -1,5 +1,7 @@
 ﻿using VideoTherapyObjects;
 using Microsoft.Kinect.VisualGestureBuilder;
+using VideotherapyPrototype;
+using VideotherapyPrototype.Switcher;
 
 namespace VideotherapyPrototype
 {
@@ -35,6 +37,10 @@ namespace VideotherapyPrototype
 
         /// <summary> Current play exercise </summary>
         private Exercise currentExercise = null;
+
+        //DELEGATE:
+        public event VideotherapyPrototype.UC_Exercise.RoundSuccessDelegate roundSuccessEvent;
+        public event VideotherapyPrototype.UC_Exercise.StartDelegate StartEvent;
 
         /// <summary>
         /// Initializes a new instance of the GestureResultView class and sets initial property values
@@ -106,6 +112,7 @@ namespace VideotherapyPrototype
 
                             Console.WriteLine("Test: > Start gesture recognized");
                             //todo Start UI - countdown
+                            StartEvent();
                         }
 
                         else
@@ -122,11 +129,19 @@ namespace VideotherapyPrototype
 
 
                     // check if round finshed
-                    if (progress <= 0.01f && this.currentExercise.CurrentRound.CheckRoundSuccess())
+                    if (progress <= 0.01f && this.currentExercise.CurrentRound.CheckRoundSuccess() && !this.currentExercise.ExerciseComplete)
                     {
+
                         
                         //Console.WriteLine("Round #{0} Finished! Status: {1}", this.currentExercise.currentRound, this.currentExercise.CurrentRound.RoundSuccess);
                         this.currentExercise.NextRound();
+                        roundSuccessEvent();
+
+                    }
+
+                    if (this.currentExercise.ExerciseComplete)
+                    {
+                        Switcher.Switcher.Switch(new UC_ExerciseResult(this.currentExercise));
                     }
                 }
             }

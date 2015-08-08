@@ -25,7 +25,8 @@ namespace VideoTherapyObjects
         public ExerciseGesture StartGesture { set; get; }
         public ObservableCollection<Round> Rounds { get; set; }
         public double ExerciseScore { set; get; }
-        
+        public bool ExerciseComplete { set; get; }
+
         private bool isPause = false;
         private bool isStarted = false;
 
@@ -42,10 +43,10 @@ namespace VideoTherapyObjects
         public void NextRound()
         {
             
-            if (!isPause)
+            if (!isPause && !ExerciseComplete)
             {
                 // debug:
-                printAllRoundStatus();
+                //printAllRoundStatus();
 
                 currentRound++;
 
@@ -59,6 +60,7 @@ namespace VideoTherapyObjects
                     // todo finish exercise
                     Console.WriteLine("Exercise complete");
                     isPause = true;
+                    ExerciseComplete = true;
                 }
 
                 this.NotifyPropertyChanged("RoundsLeft");
@@ -111,7 +113,7 @@ namespace VideoTherapyObjects
             Rounds = new ObservableCollection<Round>();
             for (int i = 0; i < Repetitions; i++)
             {
-                Rounds.Add(new Round());
+                Rounds.Add(new Round(i));
 
                 foreach (ExerciseGesture gesture in ListG)
                 {
